@@ -1,19 +1,18 @@
-import React,{useState, useEffect}from 'react';
+import React from "react";
 
-export function Member(props){
-    const [Member, setMember] =useState({});
-
-    useEffect(() =>{
-        setMember(props.member);
-    }, [props.member])
-
-    return(
+const Member = props => {
+    return (
         <div>
-<p>{Member.name}</p>
-    <p>{Member.email}</p>
-    <p>{Member.role}</p>
+            {props.member.map(member => (
+                <div key={member.id}>
+<h2>{member.name}</h2>
+            <p>{member.email}</p>
+            <p>{member.role}</p>
+            </div>
+            ))}
+        
         </div>
     );
-}
+};
 
 export default Member;
